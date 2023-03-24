@@ -1,6 +1,8 @@
-sexo = input("Informe o seu genero(F para feminino e M para masculino): ")
-if sexo != "F" or sexo != "f" or sexo != "M" or sexo != "m":
-    sexo = input("Informe F para feminino ou M para masculino: ")
+import math
+
+sexo = input("Informe o seu gênero (F para feminino e M para masculino): ")
+while sexo.lower() not in ["f", "m"]:
+    sexo = input("Opção inválida. Por favor, informe F para feminino ou M para masculino: ")
 
 idade = int(input("Informe sua idade: "))
 if idade <=0:
@@ -45,3 +47,29 @@ if dobraCutaneaSubescapular <1 :
 circunferenciaCintura = float(input("Informe sua circunferencia da cintura: "))
 if circunferenciaCintura <0:
     circunferenciaCintura = float(input("Informe uma circunferencia positiva: "))
+
+
+def  densidadeCorporal():
+    dc = 1.0970 - (0.00046971 *(dobraCutaneaTricipital + dobraCutaneaSupraIliaca + dobraCutaneaCoxa +
+                                dobraCutaneaAbdomen + dobraCutaneaPeitoral + dobraCutaneaSubescapular +
+                                dobraCutaneaAxilarMedia)) + (0.00000056 *(dobraCutaneaTricipital + 
+                                dobraCutaneaSupraIliaca + dobraCutaneaCoxa + dobraCutaneaAbdomen + 
+                                dobraCutaneaPeitoral + dobraCutaneaSubescapular +dobraCutaneaAxilarMedia)**2 - (0.00012828 * idade))
+    return (dc)
+
+
+def percentualGordura():
+    pc =((4.95/densidadeCorporal)- 4.50) * 100
+    return(pc)
+
+def massaGorda():
+    mg = (massaCorporal * percentualGordura) / 100
+    return(mg)
+
+def massaIsentaGordura():
+    mig = massaCorporal - massaGorda
+    return(mig)
+
+
+print("Densidade corporal: ", densidadeCorporal())
+print("Percentual de gordura: ", percentualGordura())
