@@ -69,7 +69,7 @@ def densidadeCorporalMasculino():
 
 # Densidade corporal recebe formula feminina ou masculino
 if sexo == "F" or sexo == "f":
-    densidadeCorporal = densidadeCorporal
+    densidadeCorporal = True
 else:
     densidadeCorporal = densidadeCorporalMasculino
 
@@ -88,7 +88,17 @@ def massaIsentaGordura():
     mig = massaCorporal - massaGorda
     return(mig)
 
+densidadeCorporal(dobraCutaneaTricipital, dobraCutaneaSupraIliaca, dobraCutaneaCoxa, dobraCutaneaAbdomen,
+                  dobraCutaneaPeitoral, dobraCutaneaSubescapular, dobraCutaneaAxilarMedia)
 
+densidadeCorporalMasculino(dobraCutaneaTricipital, dobraCutaneaSupraIliaca, dobraCutaneaCoxa, dobraCutaneaAbdomen,
+                          dobraCutaneaPeitoral, dobraCutaneaSubescapular, dobraCutaneaAxilarMedia)
+
+percentualGordura(densidadeCorporal)
+
+massaGorda(massaCorporal, percentualGordura)
+
+massaIsentaGordura(massaCorporal, massaGorda)
 
 if sexo == "F" or sexo == "f":
     print(f"Densidade corporal: {densidadeCorporal:.2f}")
@@ -102,25 +112,105 @@ print(f"Massa Isenta de Gordura: {massaIsentaGordura:.2f}")
 if sexo =="M" or sexo =="m":
     if idade >5 and idade<17:
         if percentualGordura <= 5:
-            print("Percentual de gordura nao recomendado.")
+            print("Percentual de gordura não recomendado.")
         elif percentualGordura >5 and percentualGordura <=11:
-            ("Percentual de gordura baixo.")
+            print("Percentual de gordura baixo.")
         elif percentualGordura >11 and percentualGordura <=25:
-            print("Percentual de gordura medio.")
+            print("Percentual de gordura médio.")
         elif percentualGordura >26 and percentualGordura <=31:
             print("Percentual de gordura alto.")
         else:
-            print("Voce esta obeso.")
+            print("Você está obeso.")
 
-    if idade >=18 and idade<=34:
+    elif idade >=18 and idade<=34:
         if percentualGordura <8:
-            print("Percentual de gordura nao recomendado.")
+            print("Percentual de gordura não recomendado.")
         elif percentualGordura >=8 and percentualGordura <13:
-            ("Percentual de gordura baixo.")
+            print("Percentual de gordura baixo.")
         elif percentualGordura >=13 and percentualGordura <21:
-            print("Percentual de gordura medio.")
+            print("Percentual de gordura médio.")
         elif percentualGordura >=21 and percentualGordura <=22:
             print("Percentual de gordura alto.")
         else:
-            print("Voce esta obeso.")
+            print("Você está obeso.")
 
+    elif idade >=35 and idade<=55:
+        if percentualGordura <10:
+            print("Percentual de gordura não recomendado.")
+        elif percentualGordura ==10:
+            print("Percentual de gordura baixo.")
+        elif percentualGordura >10 and percentualGordura <18:
+            print("Percentual de gordura médio.")
+        elif percentualGordura >=18 and percentualGordura <=25:
+            print("Percentual de gordura alto.")
+        else:
+            print("Você está obeso.")
+
+    if idade >55:
+        if percentualGordura <10:
+            print("Percentual de gordura não recomendado.")
+        elif percentualGordura ==10:
+            print("Percentual de gordura baixo.")
+        elif percentualGordura >10 and percentualGordura <16:
+            print("Percentual de gordura médio.")
+        elif percentualGordura >=16 and percentualGordura <=23:
+            print("Percentual de gordura alto.")
+        else:
+            print("Você está obeso.")
+
+    else:
+        if idade >5 and idade <17:
+            if percentualGordura <=12:
+                print("Percentual de gordura não recomendado.")
+            elif percentualGordura >12 and percentualGordura <=15:
+                print("Percentual de gordura baixo.")
+            elif percentualGordura >15 and percentualGordura <=30:
+                print("Percentual de gordura médio.")
+            elif percentualGordura >30 and percentualGordura <=36:
+                print("Percentual de gordura alto.")
+            else:
+                print("Você está obeso.")
+        
+        elif idade >=18 and idade <34:
+            if percentualGordura <=20:
+                print("Percentual de gordura não recomendado.")
+            elif percentualGordura ==20:
+                print("Percentual de gordura baixo.")
+            elif percentualGordura >20 and percentualGordura <=28:
+                print("Percentual de gordura médio.")
+            elif percentualGordura >28 and percentualGordura <=35:
+                print("Percentual de gordura alto.")
+            else:
+                print("Você está obeso.")
+
+        elif idade >=35 and idade <55:
+            if percentualGordura <=25:
+                print("Percentual de gordura não recomendado.")
+            elif percentualGordura ==25:
+                print("Percentual de gordura baixo.")
+            elif percentualGordura >25 and percentualGordura <=32:
+                print("Percentual de gordura médio.")
+            elif percentualGordura >32 and percentualGordura <=38:
+                print("Percentual de gordura alto.")
+            else:
+                print("Você está obeso.")
+
+        else: 
+            if idade >55:
+                if percentualGordura <=25:
+                   print("Percentual de gordura não recomendado.")
+                elif percentualGordura ==25:
+                    print("Percentual de gordura baixo.")
+                elif percentualGordura >25 and percentualGordura <=30:
+                    print("Percentual de gordura médio.")
+                elif percentualGordura >30 and percentualGordura <=35:
+                    print("Percentual de gordura alto.")
+                else:
+                    print("Você está obeso.")
+
+def taxaMetabolismoBasal():
+    tmb = 60.9 * massaCorporal - 54
+    return tmb
+
+def gastoCalorico():
+    gc = 
