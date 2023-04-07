@@ -1,5 +1,11 @@
 import math
 
+teste = int(input("Informe o teste de campo utilizado: "))
+input("1 - Teste de cooper de 12 min")
+input("2 - Teste dos 2400metros")
+input("3 - Teste incremental em esteira")
+input("4 - Teste Yo-Yo")
+
 sexo = input("Informe o seu gênero (F para feminino e M para masculino): ")
 while sexo.lower() not in ["f", "m"]:
     sexo = input("Opção inválida. Por favor, informe F para feminino ou M para masculino: ")
@@ -209,8 +215,46 @@ if sexo =="M" or sexo =="m":
                     print("Você está obeso.")
 
 def taxaMetabolismoBasal():
-    tmb = 60.9 * massaCorporal - 54
-    return tmb
+    if sexo=="M" or sexo=="m":
+        if idade >=0 and idade<=3:
+            tmb = 60.9 * massaCorporal - 54
+            return tmb
+        elif idade>3 and idade<=10:
+            tmb = 22.7 * massaCorporal + 495
+            return tmb
+        elif idade>10 and idade<=18:
+            tmb = 17.5 * massaCorporal + 651
+            return tmb
+        elif idade>18 and idade<=30:
+            tmb = 15.3 * massaCorporal + 679
+            return tmb
+        elif idade>30 and idade<=60:
+            tmb = 11.6 * massaCorporal + 879
+        else:
+            tbm = 13.5 * massaCorporal + 487
+            return tbm
+    else:
+        if idade >=0 and idade<=3:
+            tmb = 61.0 * massaCorporal - 51
+            return tmb
+        elif idade>3 and idade<=10:
+            tmb = 22.5 * massaCorporal + 499
+            return tmb
+        elif idade>10 and idade<=18:
+            tmb = 12.2 * massaCorporal + 746
+            return tmb
+        elif idade>18 and idade<=30:
+            tmb = 14.7 * massaCorporal + 496
+            return tmb
+        elif idade>30 and idade<=60:
+            tmb = 8.7 * massaCorporal + 829
+        else:
+            tbm = 10.5* massaCorporal + 596
+            return tbm 
 
 def gastoCalorico():
     gc = 
+
+
+def vo2Max():
+    vo2Max = (distanciaMetros - 504) / 45
