@@ -5,6 +5,23 @@ input("1 - Teste de cooper de 12 min")
 input("2 - Teste dos 2400metros")
 input("3 - Teste incremental em esteira")
 input("4 - Teste Yo-Yo")
+while teste<1 and teste>4:
+   teste = int(input("Informe o teste de campo utilizado: "))
+   input("1 - Teste de cooper de 12 min")
+   input("2 - Teste dos 2400metros")
+   input("3 - Teste incremental em esteira")
+   input("4 - Teste Yo-Yo") 
+
+
+atividadeDiaria = int(input("Informe um nivel de atividade diaria"))
+input("1 - Atividade leve")
+input("2 - Atividade moderada")
+input("3 -  Atividade pesada")
+while atividadeDiaria<1 and atividadeDiaria>3:
+   atividadeDiaria = int(input("Informe um nivel de atividade diaria"))
+   input("1 - Atividade leve")
+   input("2 - Atividade moderada")
+   input("3 -  Atividade pesada") 
 
 sexo = input("Informe o seu gênero (F para feminino e M para masculino): ")
 while sexo.lower() not in ["f", "m"]:
@@ -214,7 +231,7 @@ if sexo =="M" or sexo =="m":
                 else:
                     print("Você está obeso.")
 
-def taxaMetabolismoBasal():
+def taxaMetabolicaBasal():
     if sexo=="M" or sexo=="m":
         if idade >=0 and idade<=3:
             tmb = 60.9 * massaCorporal - 54
@@ -253,8 +270,26 @@ def taxaMetabolismoBasal():
             return tbm 
 
 def gastoCalorico():
-    gc = 
-
+    if sexo=="M" or sexo=="f":
+        if atividadeDiaria == 1:
+            gc = 1.55 * taxaMetabolicaBasal
+            return gc
+        elif atividadeDiaria == 2:
+            gc = 1.78 * taxaMetabolicaBasal
+            return gc
+        else:
+            gc = 2.10 * taxaMetabolicaBasal
+            return gc
+    else:
+        if atividadeDiaria == 1:
+            gc = 1.56 * taxaMetabolicaBasal
+            return gc
+        elif atividadeDiaria == 2:
+            gc = 1.64 * taxaMetabolicaBasal
+            return gc
+        else:
+            gc = 1.82 * taxaMetabolicaBasal
+            return gc
 
 def vo2Max():
     vo2Max = (distanciaMetros - 504) / 45
